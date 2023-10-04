@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8182191429115841004}
   - component: {fileID: 2255637269127661768}
   - component: {fileID: 7204683284827459660}
+  - component: {fileID: 4032857542062406403}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -91,7 +92,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 6200000, guid: c6e25db32f427694583caa7362cb91be, type: 2}
+  m_Material: {fileID: 6200000, guid: 6a50ca06eb8c1374ea1cf0d2b7f3bda5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -128,7 +129,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 375300335895509506}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6a50ca06eb8c1374ea1cf0d2b7f3bda5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -198,6 +199,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17c11f7ae1a015d46a5ea92bb526c08c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4032857542062406403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375300335895509506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f03ffe2e4881f4f9f4ce77ff32bcaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &468663170704543348
