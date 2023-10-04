@@ -877,7 +877,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 1821237704}
+  _coinCountAnimator: {fileID: 1821237706}
   _spawner: {fileID: 685749092}
+  _coinCollectedTrigger: CoinCollected
 --- !u!1 &744595664
 GameObject:
   m_ObjectHideFlags: 0
@@ -2755,6 +2757,7 @@ GameObject:
   - component: {fileID: 1821237703}
   - component: {fileID: 1821237705}
   - component: {fileID: 1821237704}
+  - component: {fileID: 1821237706}
   m_Layer: 5
   m_Name: CoinsCount
   m_TagString: Untagged
@@ -2880,6 +2883,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821237702}
   m_CullTransparentMesh: 1
+--- !u!95 &1821237706
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821237702}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6f9f55732b35e9d44ab1413ddbfa7602, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1874655919
 GameObject:
   m_ObjectHideFlags: 0

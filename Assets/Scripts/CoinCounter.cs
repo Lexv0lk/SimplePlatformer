@@ -4,7 +4,9 @@ using UnityEngine;
 public class CoinCounter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private Animator _coinCountAnimator;
     [SerializeField] private CoinSpawner _spawner;
+    [SerializeField] private string _coinCollectedTrigger;
 
     private int _currentScore;
 
@@ -32,5 +34,6 @@ public class CoinCounter : MonoBehaviour
     private void OnCoinCollected()
     {
         _scoreText.text = (++_currentScore).ToString();
+        _coinCountAnimator.SetTrigger(_coinCollectedTrigger);
     }
 }
