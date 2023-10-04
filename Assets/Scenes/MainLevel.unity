@@ -863,9 +863,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mover: {fileID: 960413258}
   _groundChecker: {fileID: 960413255}
+  _playerRigidbody: {fileID: 3863861337230140789}
   _jumpTrigger: Jump
   _groundedBool: Grounded
-  _speedFloat: CurrentSpeed
+  _speedXFloat: SpeedX
+  _velocityYFloat: VelocityY
 --- !u!114 &960413258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2467,6 +2469,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 960413263}
   m_SourcePrefab: {fileID: 100100000, guid: 7a30e84e9ca810441a5782e859468ff9, type: 3}
+--- !u!50 &3863861337230140789 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2840559785369337331, guid: 7a30e84e9ca810441a5782e859468ff9, type: 3}
+  m_PrefabInstance: {fileID: 3863861337230140788}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

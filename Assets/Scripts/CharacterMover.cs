@@ -11,9 +11,8 @@ public class CharacterMover : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private PlayerInput _input;
 
-    public event UnityAction<float> ChangedSpeedNormalized;
     public event UnityAction Jumped;
-    public event UnityAction<float> ChangedVelocity;
+    public event UnityAction<float> ChangedVelocityX;
 
     private void Awake()
     {
@@ -53,7 +52,6 @@ public class CharacterMover : MonoBehaviour
         Vector2 currentVelocity = _rigidbody.velocity;
         currentVelocity.x = direction.x * _moveSpeed;
         _rigidbody.velocity = currentVelocity;
-        ChangedSpeedNormalized?.Invoke(Mathf.Abs(direction.x));
-        ChangedVelocity?.Invoke(currentVelocity.x);
+        ChangedVelocityX?.Invoke(currentVelocity.x);
     }
 }

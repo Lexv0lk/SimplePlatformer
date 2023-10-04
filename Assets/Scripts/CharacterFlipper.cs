@@ -13,12 +13,12 @@ public class CharacterFlipper : MonoBehaviour
 
     private void OnEnable()
     {
-        _mover.ChangedVelocity += OnChangedDirection;
+        _mover.ChangedVelocityX += OnChangedDirection;
     }
 
     private void OnDisable()
     {
-        _mover.ChangedVelocity -= OnChangedDirection;
+        _mover.ChangedVelocityX -= OnChangedDirection;
     }
 
     private void OnChangedDirection(float newVelocity)

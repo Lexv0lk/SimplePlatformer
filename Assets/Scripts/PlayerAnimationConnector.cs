@@ -1,13 +1,15 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class PlayerAnimation : MonoBehaviour
+public class PlayerAnimationConnector : MonoBehaviour
 {
     [SerializeField] private CharacterMover _mover;
     [SerializeField] private GroundChecker _groundChecker;
+    [SerializeField] private Rigidbody2D _playerRigidbody;
     [SerializeField] private string _jumpTrigger;
     [SerializeField] private string _groundedBool;
-    [SerializeField] private string _speedFloat;
+    [SerializeField] private string _speedXFloat;
+    [SerializeField] private string _velocityYFloat;
 
     private Animator _animator;
 
@@ -20,7 +22,6 @@ public class PlayerAnimation : MonoBehaviour
     {
         _groundChecker.GroundLost += OnLostGround;
         _groundChecker.GroundFound += OnGrounded;
-        _mover.ChangedSpeedNormalized += OnChangedSpeed;
         _mover.Jumped += OnJumped;
     }
 
@@ -28,13 +29,13 @@ public class PlayerAnimation : MonoBehaviour
     {
         _groundChecker.GroundLost -= OnLostGround;
         _groundChecker.GroundFound -= OnGrounded;
-        _mover.ChangedSpeedNormalized -= OnChangedSpeed;
         _mover.Jumped -= OnJumped;
     }
 
-    private void OnChangedSpeed(float newValue)
+    private void Update()
     {
-        _animator.SetFloat(_speedFloat, newValue);
+        _animator.SetFloat(_speedXFloat, Mathf.Abs(_playerRigidbody.velocity.x));
+        _animator.SetFloat(_velocityYFloat, _playerRigidbody.velocity.y);
     }
 
     private void OnJumped()
