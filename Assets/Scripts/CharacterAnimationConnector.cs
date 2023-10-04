@@ -16,6 +16,7 @@ public class CharacterAnimationConnector : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _animator.keepAnimatorStateOnDisable = true;
     }
 
     private void OnEnable()
