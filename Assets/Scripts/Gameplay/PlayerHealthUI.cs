@@ -38,13 +38,17 @@ public class PlayerHealthUI : MonoBehaviour
     {
         if (_currentChanging != null)
             StopCoroutine(_currentChanging);
-
-        _sliderAnimator.SetTrigger(_healthChangingTrigger);
+  
         _currentChanging = StartCoroutine(ChangeHealthValue(_playerHealth.CurrentValue));
     }
 
     private IEnumerator ChangeHealthValue(int newValue)
     {
+        if (_healthSlider.value == newValue)
+            yield break;
+
+        _sliderAnimator.SetTrigger(_healthChangingTrigger);
+
         while (_healthSlider.value != newValue)
         {
             _healthSlider.value = Mathf.MoveTowards(_healthSlider.value, newValue, _sliderSpeed * Time.deltaTime);
