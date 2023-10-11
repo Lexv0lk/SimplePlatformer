@@ -14,9 +14,10 @@ public class GroundChecker : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Collider2D ground = Physics2D.OverlapCircle(_checkTransform.position, _checkRadius, _groundLayer);
         RaycastHit2D hitInfo = Physics2D.Raycast(_checkTransform.position, Vector2.down, _checkRadius, _groundLayer.value);
 
-        if (hitInfo.collider != null)
+        if (ground != null)
             FindGround();
         else
             LoseGround();
