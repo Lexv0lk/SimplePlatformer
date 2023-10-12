@@ -2,13 +2,15 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public abstract class CharacterMover : MonoBehaviour
+public class CharacterMover : MonoBehaviour
 {
     [SerializeField] private GroundChecker _groundChecker;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _moveSpeed;
 
     private Rigidbody2D _rigidbody;
+
+    public GroundChecker GroundChecker => _groundChecker;
 
     public event UnityAction Jumped;
     public event UnityAction<float> ChangedVelocityX;
@@ -18,7 +20,7 @@ public abstract class CharacterMover : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    protected void Jump()
+    public void Jump()
     {
         if (_groundChecker.IsGrounded)
         {
@@ -27,7 +29,7 @@ public abstract class CharacterMover : MonoBehaviour
         }
     }
 
-    protected void Move(Vector2 direction)
+    public void Move(Vector2 direction)
     {
         Vector2 currentVelocity = _rigidbody.velocity;
         currentVelocity.x = direction.x * _moveSpeed;

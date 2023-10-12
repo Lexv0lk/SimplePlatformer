@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(CharacterMover))]
 public class CharacterFlipper : MonoBehaviour
 {
     private CharacterMover _mover;
     private bool _facingRight = true;
+
+    public event UnityAction Flipped;
 
     private void Awake()
     {
@@ -29,9 +32,8 @@ public class CharacterFlipper : MonoBehaviour
 
     private void Flip()
     {
-        Vector2 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        transform.Rotate(new Vector3(transform.rotation.x, 180 - transform.rotation.y, transform.rotation.z));
         _facingRight = !_facingRight;
+        Flipped?.Invoke();
     }
 }

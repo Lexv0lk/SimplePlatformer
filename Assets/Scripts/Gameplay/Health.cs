@@ -9,7 +9,8 @@ public class Health : MonoBehaviour
     public int MaximalValue => _maximalValue;
     public int CurrentValue => _currentValue;
 
-    public event UnityAction HealthChanged;
+    public event UnityAction Healed;
+    public event UnityAction TakenDamage;
 
     private void Awake()
     {
@@ -20,13 +21,13 @@ public class Health : MonoBehaviour
     {
         _currentValue -= value;
         _currentValue = Mathf.Max(0, _currentValue);
-        HealthChanged?.Invoke();
+        TakenDamage?.Invoke();
     }
 
     public void TakeHeal(int value)
     {
         _currentValue += value;
         _currentValue = Mathf.Min(_maximalValue, _currentValue);
-        HealthChanged?.Invoke();
+        Healed?.Invoke();
     }
 }
