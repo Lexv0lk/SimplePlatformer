@@ -9,8 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private string _deadLayer;
     [SerializeField] private string _dyingTrigger;
     [SerializeField] private string _deadTrigger;
-    [SerializeField] private CharacterMover _mover;
-    [SerializeField] private PatrolMover _patrolMover;
+    [SerializeField] private TargetMover _mover;
     [SerializeField] private EnemyHealthUI _healthBar;
 
     private Health _health;
@@ -53,7 +52,6 @@ public class Enemy : MonoBehaviour
 
         gameObject.layer = LayerMask.NameToLayer(_deadLayer);
         _animator.SetTrigger(_dyingTrigger);
-        _patrolMover.enabled = false;
-        _mover.Move(Vector2.zero);
+        _mover.Discard();
     }
 }
