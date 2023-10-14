@@ -9,10 +9,10 @@ public class Repulsor : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
 
-    public bool CanMove { get; private set; } = true;
-
     public event UnityAction Repulsed;
     public event UnityAction RestartedMoving;
+
+    public bool CanMove { get; private set; } = true;
 
     private void Awake()
     {

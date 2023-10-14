@@ -17,13 +17,18 @@ public class PatrolMover : MonoBehaviour
 
     private void Start()
     {
-        _mover.SetTarget(_patrolPoints[_currentPointIndex]);
+        Activate();
     }
 
     private void Update()
     {
         if (Mathf.Abs(transform.position.x - _patrolPoints[_currentPointIndex].position.x) <= _inaccuracyValue)
             PickNextPoint();
+    }
+
+    public void Activate()
+    {
+        _mover.SetTarget(_patrolPoints[_currentPointIndex]);
     }
 
     private void PickNextPoint()

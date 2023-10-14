@@ -7,11 +7,11 @@ public class GroundView : MonoBehaviour
     [SerializeField] private float _distance;
     [SerializeField, Range(0, 90)] private float _offsetAngle;
 
+    public event UnityAction GroundLost;
+
     public bool IsGroundAhead { get; private set; } = false;
     public float Distance => _distance;
     public float OffsetAngle => _offsetAngle;
-
-    public event UnityAction GroundLost;
 
     private void FixedUpdate()
     {

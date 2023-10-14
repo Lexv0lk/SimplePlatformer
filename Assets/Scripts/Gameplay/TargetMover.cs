@@ -5,12 +5,12 @@ public class TargetMover : MonoBehaviour
 {
     [SerializeField] private GroundView _groundView;
     [SerializeField] private Repulsor _repulsor;
+    [SerializeField] private CharacterFlipper _flipper;
 
     private CharacterMover _mover;
     private Transform _target;
     private Vector3 _lastTargetPosition;
     private Vector3 _currentDirection;
-    private bool _checkForGroundAhead = true;
 
     private void Awake()
     {
@@ -56,7 +56,6 @@ public class TargetMover : MonoBehaviour
 
     private void OnTookRepulsion()
     {
-        _checkForGroundAhead = false;
         _mover.Move(Vector2.zero);
     }
 
@@ -67,6 +66,10 @@ public class TargetMover : MonoBehaviour
 
     private void RecalculateDirection()
     {
+        _lastTargetPosition = _target.position;
         _currentDirection = (_lastTargetPosition - transform.position).normalized;
+
+        if (Vector2.Dot(transform.right.normalized, _currentDirection) < 0)
+            _flipper.Flip();
     }
 }

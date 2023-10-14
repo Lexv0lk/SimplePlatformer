@@ -30,7 +30,7 @@ public class CharacterFlipper : MonoBehaviour
             Flip();
     }
 
-    private void Flip()
+    public void Flip()
     {
         transform.Rotate(new Vector3(transform.rotation.x, 180 - transform.rotation.y, transform.rotation.z));
         _facingRight = !_facingRight;

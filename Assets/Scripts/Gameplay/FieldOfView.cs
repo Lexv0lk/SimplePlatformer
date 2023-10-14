@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FieldOfView : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class FieldOfView : MonoBehaviour
     [SerializeField, Range(0, 360)] private float _angle;
 
     private bool _canSeePlayer = false;
+
+    public event UnityAction<Player> FoundPlayer;
+    public event UnityAction LostPlayer;
 
     public float Radius => _radius;
     public float Angle => _angle;
@@ -23,6 +27,7 @@ public class FieldOfView : MonoBehaviour
 
         if (checkedCollider != null)
         {
+            bool wasPlayerSeen = _canSeePlayer;
             Transform player = checkedCollider.transform;
             Vector2 direction = (player.position - transform.position).normalized;
 
@@ -40,6 +45,11 @@ public class FieldOfView : MonoBehaviour
             {
                 _canSeePlayer = false;
             }
+
+            if (wasPlayerSeen == false && _canSeePlayer == true)
+                FoundPlayer?.Invoke(player.GetComponent<Player>());
+            else if (wasPlayerSeen == true && _canSeePlayer == false)
+                LostPlayer?.Invoke();
         }
     }
 }
