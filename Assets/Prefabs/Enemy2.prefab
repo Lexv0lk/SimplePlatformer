@@ -1654,6 +1654,8 @@ MonoBehaviour:
   _deactivateOnDeathDependencies:
   - {fileID: 4496291667955201628}
   - {fileID: 2690218197569810809}
+  - {fileID: 6445749745386549284}
+  - {fileID: 5099015609792035843}
   _animator: {fileID: 7020674713427503238}
   _fov: {fileID: 3261491078494929273}
   _flipper: {fileID: 3854969925913681851}
