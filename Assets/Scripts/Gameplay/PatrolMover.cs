@@ -4,7 +4,7 @@ using UnityEngine;
 public class PatrolMover : MonoBehaviour
 {
     [SerializeField] private Transform[] _patrolPoints;
-    [SerializeField] private Health _health;
+    [SerializeField] private float _patrolSpeed = 1f;
 
     private const float _inaccuracyValue = 0.05f;
     private int _currentPointIndex = 0;
@@ -28,12 +28,12 @@ public class PatrolMover : MonoBehaviour
 
     public void Activate()
     {
-        _mover.SetTarget(_patrolPoints[_currentPointIndex]);
+        _mover.SetTarget(_patrolPoints[_currentPointIndex], _patrolSpeed, _inaccuracyValue);
     }
 
     private void PickNextPoint()
     {
         _currentPointIndex = (_currentPointIndex + 1) % _patrolPoints.Length;
-        _mover.SetTarget(_patrolPoints[_currentPointIndex]);
+        _mover.SetTarget(_patrolPoints[_currentPointIndex], _patrolSpeed, _inaccuracyValue);
     }
 }

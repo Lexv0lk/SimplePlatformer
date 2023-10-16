@@ -8,7 +8,7 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] private float _radius;
     [SerializeField, Range(0, 360)] private float _angle;
 
-    private bool _canSeePlayer = false;
+    public bool CanSeePlayer { get; private set; } = false;
 
     public event UnityAction<Player> FoundPlayer;
     public event UnityAction LostPlayer;
@@ -27,7 +27,7 @@ public class FieldOfView : MonoBehaviour
 
         if (checkedCollider != null)
         {
-            bool wasPlayerSeen = _canSeePlayer;
+            bool wasPlayerSeen = CanSeePlayer;
             Transform player = checkedCollider.transform;
             Vector2 direction = (player.position - transform.position).normalized;
 
@@ -37,18 +37,18 @@ public class FieldOfView : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, _viewMask);
 
                 if (hit.collider != null)
-                    _canSeePlayer = hit.collider.gameObject == player.gameObject;
+                    CanSeePlayer = hit.collider.gameObject == player.gameObject;
                 else
-                    _canSeePlayer = false;
+                    CanSeePlayer = false;
             }
             else
             {
-                _canSeePlayer = false;
+                CanSeePlayer = false;
             }
 
-            if (wasPlayerSeen == false && _canSeePlayer == true)
+            if (wasPlayerSeen == false && CanSeePlayer == true)
                 FoundPlayer?.Invoke(player.GetComponent<Player>());
-            else if (wasPlayerSeen == true && _canSeePlayer == false)
+            else if (wasPlayerSeen == true && CanSeePlayer == false)
                 LostPlayer?.Invoke();
         }
     }

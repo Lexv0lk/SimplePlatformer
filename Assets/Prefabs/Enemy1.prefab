@@ -164,7 +164,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 136
   _radius: 4.57
-  _angle: 36
+  _angle: 204
 --- !u!1 &880057143391053808
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +729,90 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1776794160351329386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7585837359773744866}
+  - component: {fileID: 8847001045452486221}
+  - component: {fileID: 747047570536177673}
+  m_Layer: 12
+  m_Name: HeadWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7585837359773744866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776794160351329386}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2997114117372892677}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &8847001045452486221
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776794160351329386}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.012800924, y: 0.33267435}
+  m_Size: {x: 0.99098426, y: 0.46184248}
+  m_Direction: 1
+--- !u!114 &747047570536177673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776794160351329386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036067d0a76ff99499a1dc807997e870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 2997114117372892677}
+  RepulsionOffset: {x: 0, y: 0}
+  _damage: 30
+  _repulsionPower: 10
 --- !u!1 &2147049810824312788
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +885,7 @@ GameObject:
   - component: {fileID: 6021780588746385651}
   - component: {fileID: 8276626461221568688}
   - component: {fileID: 5155595001505237067}
+  - component: {fileID: 8824597877945002656}
   m_Layer: 6
   m_Name: Enemy1
   m_TagString: Enemy
@@ -829,6 +914,7 @@ Transform:
   - {fileID: 9135611403550080157}
   - {fileID: 3806012586760865545}
   - {fileID: 734332123442055926}
+  - {fileID: 7585837359773744866}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &3848835148795381201
@@ -927,6 +1013,7 @@ MonoBehaviour:
   _groundedBool: Grounded
   _speedXFloat: SpeedX
   _velocityYFloat: VelocityY
+  _animator: {fileID: 3138709620135157864}
 --- !u!58 &5500388833353743248
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -989,7 +1076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _groundChecker: {fileID: 363562591020073001}
   _jumpForce: 450
-  _moveSpeed: 2
+  _moveSpeed: 1.5
 --- !u!114 &7856678271631264525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,7 +1104,7 @@ MonoBehaviour:
   _patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
-  _health: {fileID: 839479276208490337}
+  _patrolSpeed: 1.8
 --- !u!114 &3741586362759604586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,6 +1118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundChecker: {fileID: 363562591020073001}
+  _knockedTime: 0.5
+  _disableAirMoving: 1
 --- !u!114 &6021780588746385651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,6 +1152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _groundView: {fileID: 7061504873152378511}
   _repulsor: {fileID: 3741586362759604586}
+  _flipper: {fileID: 7856678271631264525}
 --- !u!114 &5155595001505237067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1078,8 +1168,32 @@ MonoBehaviour:
   _deadLayer: Dead
   _dyingTrigger: Die
   _deadTrigger: Dead
+  _seePlayerBoolean: SeePlayer
   _mover: {fileID: 8276626461221568688}
   _healthBar: {fileID: 4854278069351666372}
+  _deactivateOnDeathDependencies:
+  - {fileID: 506704784291142337}
+  - {fileID: 7647098132909458745}
+  - {fileID: 1776794160351329386}
+  _animator: {fileID: 3138709620135157864}
+  _fov: {fileID: 1308518260497823482}
+  _flipper: {fileID: 7856678271631264525}
+--- !u!114 &8824597877945002656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181088685705336511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1055a3cc6d354ab4ebc1bdec1e439394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _patrolMover: {fileID: 241471394070097522}
+  _fieldOfView: {fileID: 1308518260497823482}
+  _followSpeed: 2.5
+  _distanceToTarget: 1
 --- !u!1 &2512183257145101603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,7 +2232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.11899982
+  m_Length: 0.119
   m_ChildTransform: {fileID: 6111497863133431024}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &5445552131844419522
@@ -2371,7 +2485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.11899989
+  m_Length: 0.11900003
   m_ChildTransform: {fileID: 8240823514879412217}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &6649608158527861148

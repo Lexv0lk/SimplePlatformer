@@ -1,32 +1,34 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
+    [SerializeField] protected Transform Owner;
+    [SerializeField] protected Vector2 RepulsionOffset = new Vector2(1, 3);
     [SerializeField] private int _damage;
     [SerializeField] private float _repulsionPower;
-    [SerializeField] private Transform _owner;
-    [SerializeField] private Vector2 _repulsionDelta = new Vector2(1, 3);
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void AppealDamage(Collider2D collider)
     {
         Health health;
 
-        if (collision.gameObject.TryGetComponent(out health) == true)
+        if (collider.gameObject.TryGetComponent(out health) == true)
         {
             health.TakeDamage(_damage);
-            Repulsor repulsor;
+        }
+    }
 
-            if (collision.gameObject.TryGetComponent(out repulsor) == true)
-            {
-                float flipMultiplyer = _owner.transform.right.x > 0 ? 1 : -1;
+    protected void AppealRepulsion(Collider2D collider, float flipMuliplyer = 1)
+    {
+        Repulsor repulsor;
 
-                Vector3 targetPosition = collision.transform.position;
-                targetPosition += (Vector3)new Vector2(_repulsionDelta.x * flipMultiplyer, _repulsionDelta.y);
+        if (collider.gameObject.TryGetComponent(out repulsor) == true)
+        {
+            Vector3 targetPosition = collider.transform.position;
+            targetPosition += (Vector3)new Vector2(RepulsionOffset.x * flipMuliplyer, RepulsionOffset.y);
 
-                Vector2 direction = (targetPosition - _owner.transform.position).normalized;
-                repulsor.TakeRepulsion(direction * _repulsionPower);
-            }
+            Vector2 direction = (targetPosition - Owner.transform.position).normalized;
+            repulsor.TakeRepulsion(direction * _repulsionPower);
         }
     }
 }

@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class Repulsor : MonoBehaviour
 {
     [SerializeField] private GroundChecker _groundChecker;
+    [SerializeField] private float _knockedTime = 0.5f;
+    [SerializeField] private bool _disableAirMoving = true;
 
     private Rigidbody2D _rigidbody;
 
@@ -23,7 +25,7 @@ public class Repulsor : MonoBehaviour
     {
         CanMove = false;
         Repulsed?.Invoke();
-        StartCoroutine(RestartMovingAbility(0.5f));
+        StartCoroutine(RestartMovingAbility(_knockedTime));
         _rigidbody.AddForce(force, ForceMode2D.Impulse);
     }
 
@@ -31,12 +33,13 @@ public class Repulsor : MonoBehaviour
     {
         yield return new WaitForSeconds(lagTime);
 
-        while (CanMove == false)
+        while (CanMove == false && _disableAirMoving == true)
         {
             CanMove = _groundChecker.IsGrounded;
             yield return null;
         }
 
+        CanMove = true;
         RestartedMoving?.Invoke();
     }
 }

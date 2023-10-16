@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 public class CharacterAnimationConnector : MonoBehaviour
 {
     [SerializeField] private CharacterMover _mover;
@@ -10,12 +9,10 @@ public class CharacterAnimationConnector : MonoBehaviour
     [SerializeField] private string _groundedBool;
     [SerializeField] private string _speedXFloat;
     [SerializeField] private string _velocityYFloat;
-
-    private Animator _animator;
+    [SerializeField] private Animator _animator;
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
         _animator.keepAnimatorStateOnDisable = true;
     }
 

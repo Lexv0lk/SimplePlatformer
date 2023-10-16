@@ -5,6 +5,8 @@ public class PlayerFollower : MonoBehaviour
 {
     [SerializeField] private PatrolMover _patrolMover;
     [SerializeField] private FieldOfView _fieldOfView;
+    [SerializeField] private float _followSpeed = 2.5f;
+    [SerializeField] private float _distanceToTarget = 1f;
 
     private TargetMover _targetMover;
 
@@ -28,7 +30,7 @@ public class PlayerFollower : MonoBehaviour
     private void OnFoundPlayer(Player player)
     {
         _patrolMover.enabled = false;
-        _targetMover.SetTarget(player.transform);
+        _targetMover.SetTarget(player.transform, _followSpeed, _distanceToTarget);
     }
 
     private void OnLostPlayer()

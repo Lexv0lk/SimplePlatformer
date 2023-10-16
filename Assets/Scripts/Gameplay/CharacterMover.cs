@@ -29,6 +29,14 @@ public class CharacterMover : MonoBehaviour
         }
     }
 
+    public void Move(Vector2 direction, float speed)
+    {
+        Vector2 currentVelocity = _rigidbody.velocity;
+        currentVelocity.x = direction.x * speed;
+        _rigidbody.velocity = currentVelocity;
+        ChangedVelocityX?.Invoke(currentVelocity.x);
+    }
+
     public void Move(Vector2 direction)
     {
         Vector2 currentVelocity = _rigidbody.velocity;

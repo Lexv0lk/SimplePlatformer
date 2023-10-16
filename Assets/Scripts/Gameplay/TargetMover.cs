@@ -11,6 +11,8 @@ public class TargetMover : MonoBehaviour
     private Transform _target;
     private Vector3 _lastTargetPosition;
     private Vector3 _currentDirection;
+    private float _speed;
+    private float _accuracy;
 
     private void Awake()
     {
@@ -37,13 +39,15 @@ public class TargetMover : MonoBehaviour
         if (_target.position != _lastTargetPosition)
             RecalculateDirection();
 
-        if (_groundView.IsGroundAhead)
-            _mover.Move(_currentDirection);
+        if (_groundView.IsGroundAhead && Mathf.Abs(_target.position.x - transform.position.x) >= _accuracy)
+            _mover.Move(_currentDirection, _speed);
     }
 
-    public void SetTarget(Transform target)
+    public void SetTarget(Transform target, float speed, float accuracy)
     {
         _target = target;
+        _speed = speed;
+        _accuracy = accuracy;
         _lastTargetPosition = target.position;
         RecalculateDirection();
     }
@@ -61,7 +65,8 @@ public class TargetMover : MonoBehaviour
 
     private void OnRestartedMoving()
     {
-        RecalculateDirection();
+        if (_target != null)
+            RecalculateDirection();
     }
 
     private void RecalculateDirection()
