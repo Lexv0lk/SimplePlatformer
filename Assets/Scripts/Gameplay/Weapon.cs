@@ -18,14 +18,14 @@ public abstract class Weapon : MonoBehaviour
         }
     }
 
-    protected void AppealRepulsion(Collider2D collider, float flipMuliplyer = 1)
+    protected void AppealRepulsion(Collider2D collider, float flipMultiplyer = 1)
     {
         Repulsor repulsor;
 
         if (collider.gameObject.TryGetComponent(out repulsor) == true)
         {
             Vector3 targetPosition = collider.transform.position;
-            targetPosition += (Vector3)new Vector2(RepulsionOffset.x * flipMuliplyer, RepulsionOffset.y);
+            targetPosition += (Vector3)new Vector2(RepulsionOffset.x * flipMultiplyer, RepulsionOffset.y);
 
             Vector2 direction = (targetPosition - Owner.transform.position).normalized;
             repulsor.TakeRepulsion(direction * _repulsionPower);

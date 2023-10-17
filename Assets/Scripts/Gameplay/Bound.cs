@@ -4,6 +4,7 @@ using UnityEngine;
 public class Bound : MonoBehaviour
 {
     [SerializeField] private PlayerRespawner _respawner;
+    [SerializeField] private int _damageToPlayer = 30;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -19,6 +20,8 @@ public class Bound : MonoBehaviour
 
         if (other.TryGetComponent(out player))
         {
+            Health health = player.GetComponent<Health>();
+            health.TakeDamage(_damageToPlayer);
             _respawner.Respawn();
         }
     }

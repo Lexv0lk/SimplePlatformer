@@ -8,6 +8,7 @@ public class Repulsor : MonoBehaviour
     [SerializeField] private GroundChecker _groundChecker;
     [SerializeField] private float _knockedTime = 0.5f;
     [SerializeField] private bool _disableAirMoving = true;
+    [SerializeField] private CharacterMover _mover;
 
     private Rigidbody2D _rigidbody;
 
@@ -31,6 +32,7 @@ public class Repulsor : MonoBehaviour
 
     private IEnumerator RestartMovingAbility(float lagTime)
     {
+        _mover.Deactivate();
         yield return new WaitForSeconds(lagTime);
 
         while (CanMove == false && _disableAirMoving == true)
@@ -40,6 +42,7 @@ public class Repulsor : MonoBehaviour
         }
 
         CanMove = true;
+        _mover.Activate();
         RestartedMoving?.Invoke();
     }
 }

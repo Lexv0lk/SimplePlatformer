@@ -44,6 +44,6 @@ public class Player : MonoBehaviour
 
     private void OnTookRepulsion()
     {
-        _mover.Move(Vector2.zero);
+        //_mover.Move(Vector2.zero);
     }
 }

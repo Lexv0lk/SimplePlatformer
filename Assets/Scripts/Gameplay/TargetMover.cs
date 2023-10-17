@@ -39,8 +39,12 @@ public class TargetMover : MonoBehaviour
         if (_target.position != _lastTargetPosition)
             RecalculateDirection();
 
-        if (_groundView.IsGroundAhead && Mathf.Abs(_target.position.x - transform.position.x) >= _accuracy)
+        float distance = Vector2.Distance(transform.position, _target.position);
+
+        if (_groundView.IsGroundAhead && distance > _accuracy)
             _mover.Move(_currentDirection, _speed);
+        else if (distance <= _accuracy)
+            _mover.Move(Vector2.zero);
     }
 
     public void SetTarget(Transform target, float speed, float accuracy)

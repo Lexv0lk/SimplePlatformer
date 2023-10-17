@@ -1544,7 +1544,6 @@ GameObject:
   - component: {fileID: 3099732283467480502}
   - component: {fileID: 2087809606983665597}
   - component: {fileID: 1609094242761816001}
-  - component: {fileID: 7692435042446664480}
   - component: {fileID: 116709790715040418}
   - component: {fileID: 6009479963930380959}
   - component: {fileID: 8257518650107834821}
@@ -1672,8 +1671,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundChecker: {fileID: 6009479963930380959}
+  _maxSpeed: 8
+  _acceleration: 200
+  _maxAccelerationForce: 150
   _jumpForce: 450
-  _moveSpeed: 2
 --- !u!114 &2051065086150554832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1722,6 +1723,7 @@ MonoBehaviour:
   _groundChecker: {fileID: 6009479963930380959}
   _knockedTime: 0.5
   _disableAirMoving: 1
+  _mover: {fileID: 2243745694883583092}
 --- !u!114 &1609094242761816001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1738,24 +1740,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _patrolSpeed: 1.8
---- !u!114 &7692435042446664480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3141629354976228388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a43ac29041ebac047a703d08cd2b0a7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 7020674713427503238}
-  _autoAttack: 0
-  _range: 1
-  _attackable:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &116709790715040418
 MonoBehaviour:
   m_ObjectHideFlags: 0

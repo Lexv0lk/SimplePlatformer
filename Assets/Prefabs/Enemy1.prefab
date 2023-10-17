@@ -163,8 +163,8 @@ MonoBehaviour:
   _viewMask:
     serializedVersion: 2
     m_Bits: 136
-  _radius: 4.57
-  _angle: 204
+  _radius: 3.16
+  _angle: 83
 --- !u!1 &880057143391053808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,8 +1075,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundChecker: {fileID: 363562591020073001}
+  _maxSpeed: 8
+  _acceleration: 200
+  _maxAccelerationForce: 150
   _jumpForce: 450
-  _moveSpeed: 1.5
 --- !u!114 &7856678271631264525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1120,6 +1122,7 @@ MonoBehaviour:
   _groundChecker: {fileID: 363562591020073001}
   _knockedTime: 0.5
   _disableAirMoving: 1
+  _mover: {fileID: 5554966797053696468}
 --- !u!114 &6021780588746385651
 MonoBehaviour:
   m_ObjectHideFlags: 0
