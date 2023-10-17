@@ -43,7 +43,7 @@ public class TargetMover : MonoBehaviour
 
         if (_groundView.IsGroundAhead && distance > _accuracy)
             _mover.Move(_currentDirection, _speed);
-        else if (distance <= _accuracy)
+        else
             _mover.Move(Vector2.zero);
     }
 
