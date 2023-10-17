@@ -709,6 +709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parent: {fileID: 8514046554310227861}
+  _parentAttacker: {fileID: 3915759159466836773}
 --- !u!1 &1570436168893084897
 GameObject:
   m_ObjectHideFlags: 0

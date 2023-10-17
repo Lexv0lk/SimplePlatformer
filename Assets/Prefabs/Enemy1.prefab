@@ -810,7 +810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 2997114117372892677}
-  RepulsionOffset: {x: 0, y: 0}
+  RepulsionOffset: {x: 0.5, y: 1}
   _damage: 30
   _repulsionPower: 10
 --- !u!1 &2147049810824312788

@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: 2051419423408432200}
   - component: {fileID: 2691977224399756738}
   - component: {fileID: 2466741026138962301}
+  - component: {fileID: 2063817522394342888}
+  - component: {fileID: 5283774602018009061}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -141,6 +143,7 @@ MonoBehaviour:
   _groundedBool: Grounded
   _speedXFloat: SpeedX
   _velocityYFloat: VelocityY
+  _animator: {fileID: 3798428282861190599}
 --- !u!114 &7204683284827459660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,8 +181,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundChecker: {fileID: 8917326138194723624}
-  _jumpForce: 450
-  _moveSpeed: 5
+  _maxSpeed: 5
+  _acceleration: 200
+  _maxAccelerationForce: 150
+  _jumpForce: 10
 --- !u!114 &2051419423408432200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +197,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43ac29041ebac047a703d08cd2b0a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 3798428282861190599}
+  _autoAttack: 0
+  _range: 1
+  _attackable:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!61 &2691977224399756738
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -250,6 +261,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maximalValue: 100
+--- !u!114 &2063817522394342888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375300335895509506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9037afc0f5a17f547a7046dc68c6efd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundChecker: {fileID: 8917326138194723624}
+  _knockedTime: 0.2
+  _disableAirMoving: 1
+  _mover: {fileID: 1301665889576629379}
+--- !u!114 &5283774602018009061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375300335895509506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e7e0f509fc8d0b4984573c907e9c801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshesParent: {fileID: 4250579281537748796}
+  _health: {fileID: 2466741026138962301}
+  _duration: 0.25
+  _healColor: {r: 0.3726415, g: 1, b: 0.3726415, a: 1}
+  _damageColor: {r: 1, g: 0, b: 0, a: 1}
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &468663170704543348
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,9 +2179,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 683025063124606899}
+  RepulsionOffset: {x: 1, y: 3}
   _damage: 40
   _repulsionPower: 530
-  _repulsionOffset: {x: 1, y: 3.5}
 --- !u!70 &7195166111051539787
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

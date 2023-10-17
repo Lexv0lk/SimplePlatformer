@@ -9,6 +9,13 @@ public class Attacker : MonoBehaviour
     [SerializeField] private float _range = 1f;
     [SerializeField] private LayerMask _attackable;
 
+    private bool _isReady;
+
+    private void Awake()
+    {
+        _isReady = true;
+    }
+
     private void FixedUpdate()
     {
         if (_autoAttack == false)
@@ -22,6 +29,12 @@ public class Attacker : MonoBehaviour
 
     public void Attack()
     {
-        _animator.SetTrigger("Attack");
+        if (_isReady)
+        {
+            _animator.SetTrigger("Attack");
+            _isReady = false;
+        }
     }
+
+    public void GetReady() => _isReady = true;
 }

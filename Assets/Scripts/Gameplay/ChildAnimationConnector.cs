@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class ChildDeathConnector : MonoBehaviour
+public class ChildAnimationConnector : MonoBehaviour
 {
     [SerializeField] private Enemy _parent;
+    [SerializeField] private Attacker _parentAttacker;
 
     public void Vanish()
     {
@@ -12,5 +13,10 @@ public class ChildDeathConnector : MonoBehaviour
     public void Die()
     {
         _parent.Die();
+    }
+
+    public void ReadyToAttack()
+    {
+        _parentAttacker.GetReady();
     }
 }
