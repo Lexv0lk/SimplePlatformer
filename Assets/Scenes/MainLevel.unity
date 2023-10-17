@@ -1411,6 +1411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 944220897}
   - component: {fileID: 944220898}
+  - component: {fileID: 944220899}
   m_Layer: 9
   m_Name: Right
   m_TagString: Untagged
@@ -1462,7 +1463,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 4.632607, y: 2.6965861}
@@ -1478,6 +1479,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.265214, y: 15.700997}
   m_EdgeRadius: 0
+--- !u!114 &944220899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944220896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49556e29cb7b2d047a9026ff54d2f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _respawner: {fileID: 865061103}
 --- !u!1 &960413243 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 375300335895509506, guid: 7a30e84e9ca810441a5782e859468ff9, type: 3}
@@ -1988,6 +2002,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1151613344}
   - component: {fileID: 1151613345}
+  - component: {fileID: 1151613346}
   m_Layer: 9
   m_Name: Left
   m_TagString: Untagged
@@ -2039,10 +2054,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.6307344, y: 2.778708}
+  m_Offset: {x: -2.4083195, y: 2.778708}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2053,8 +2068,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.6043873, y: 15.865241}
+  m_Size: {x: 8.049217, y: 15.865241}
   m_EdgeRadius: 0
+--- !u!114 &1151613346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151613343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49556e29cb7b2d047a9026ff54d2f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _respawner: {fileID: 865061103}
 --- !u!1 &1191003075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,6 +2157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1272180735}
   - component: {fileID: 1272180736}
+  - component: {fileID: 1272180737}
   m_Layer: 9
   m_Name: Lower
   m_TagString: Untagged
@@ -2180,7 +2209,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 3.4753666, y: -2.2949727}
@@ -2196,6 +2225,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 43.3353, y: 1.3759542}
   m_EdgeRadius: 0
+--- !u!114 &1272180737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272180734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49556e29cb7b2d047a9026ff54d2f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _respawner: {fileID: 865061103}
 --- !u!1 &1278524550
 GameObject:
   m_ObjectHideFlags: 0
@@ -5600,6 +5642,10 @@ PrefabInstance:
     - target: {fileID: 3141629354976228388, guid: 3ab7936f75f71d34eadece6c58953818, type: 3}
       propertyPath: m_Name
       value: Enemy2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141629354976228388, guid: 3ab7936f75f71d34eadece6c58953818, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3348225777972244450, guid: 3ab7936f75f71d34eadece6c58953818, type: 3}
       propertyPath: m_Mesh

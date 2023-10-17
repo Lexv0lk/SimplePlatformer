@@ -23,11 +23,11 @@ public class FieldOfView : MonoBehaviour
 
     private void CheckForPlayer()
     {
+        bool wasPlayerSeen = CanSeePlayer;
         Collider2D checkedCollider = Physics2D.OverlapCircle(transform.position, _radius, _playerLayer);
 
         if (checkedCollider != null)
         {
-            bool wasPlayerSeen = CanSeePlayer;
             Transform player = checkedCollider.transform;
             Vector2 direction = (player.position - transform.position).normalized;
 
@@ -48,8 +48,13 @@ public class FieldOfView : MonoBehaviour
 
             if (wasPlayerSeen == false && CanSeePlayer == true)
                 FoundPlayer?.Invoke(player.GetComponent<Player>());
-            else if (wasPlayerSeen == true && CanSeePlayer == false)
-                LostPlayer?.Invoke();
         }
+        else
+        {
+            CanSeePlayer = false;
+        }
+
+        if (wasPlayerSeen == true && CanSeePlayer == false)
+            LostPlayer?.Invoke();
     }
 }
