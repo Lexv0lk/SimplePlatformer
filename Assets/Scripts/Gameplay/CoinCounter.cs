@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CoinCounter : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class CoinCounter : MonoBehaviour
     [SerializeField] private Animator _coinCountAnimator;
     [SerializeField] private CoinSpawner _spawner;
     [SerializeField] private string _coinCollectedTrigger;
+    [SerializeField] private UnityEvent _allCoinsCollected;
 
     private int _currentScore;
     private int _totalCoinsCount;
@@ -37,6 +39,9 @@ public class CoinCounter : MonoBehaviour
         _currentScore++;
         ShowScore();
         _coinCountAnimator.SetTrigger(_coinCollectedTrigger);
+
+        if (_currentScore == _totalCoinsCount)
+            _allCoinsCollected?.Invoke();
     }
 
     private void ShowScore()
