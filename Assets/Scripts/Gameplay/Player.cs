@@ -1,14 +1,22 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(CharacterMover))]
 [RequireComponent(typeof(Attacker))]
-[RequireComponent(typeof(Repulsor))]
+[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
+    [SerializeField] private string _deadLayer;
+    [SerializeField] private string _dieTrigger;
+    [SerializeField] private UnityEvent _died;
+
     private PlayerInput _input;
     private CharacterMover _mover;
     private Attacker _attacker;
     private Repulsor _repulsor;
+    private Health _health;
+    private Animator _animator;
 
     private void Awake()
     {
@@ -16,6 +24,8 @@ public class Player : MonoBehaviour
         _mover = GetComponent<CharacterMover>();
         _attacker = GetComponent<Attacker>();
         _repulsor = GetComponent<Repulsor>();
+        _health = GetComponent<Health>();
+        _animator = GetComponent<Animator>();
 
         _input.Player.Jump.performed += context => _mover.Jump();
         _input.Player.Attack.performed += context => _attacker.Attack();
@@ -24,13 +34,13 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         _input.Enable();
-        _repulsor.Repulsed += OnTookRepulsion;
+        _health.TakenDamage += OnTakenDamage;
     }
 
     private void OnDisable()
     {
         _input.Disable();
-        _repulsor.Repulsed -= OnTookRepulsion;
+        _health.TakenDamage -= OnTakenDamage;
     }
 
     private void Update()
@@ -42,8 +52,14 @@ public class Player : MonoBehaviour
         _mover.Move(direction);
     }
 
-    private void OnTookRepulsion()
+    private void OnTakenDamage()
     {
-        //_mover.Move(Vector2.zero);
+        if (_health.CurrentValue > 0)
+            return;
+
+        gameObject.layer = LayerMask.NameToLayer(_deadLayer);
+        _animator.SetTrigger(_dieTrigger);
+        _input.Disable();
+        _died?.Invoke();
     }
 }
