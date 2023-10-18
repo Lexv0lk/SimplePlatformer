@@ -164,7 +164,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 136
   _radius: 3.16
-  _angle: 83
+  _angle: 178
 --- !u!1 &880057143391053808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   _patrolMover: {fileID: 241471394070097522}
   _fieldOfView: {fileID: 1308518260497823482}
   _followSpeed: 2.5
-  _distanceToTarget: 1
+  _distanceToTarget: 0.5
 --- !u!1 &2512183257145101603
 GameObject:
   m_ObjectHideFlags: 0

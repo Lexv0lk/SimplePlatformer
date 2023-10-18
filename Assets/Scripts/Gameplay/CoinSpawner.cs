@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class CoinSpawner : MonoBehaviour
 {
     [SerializeField] private Coin _prefab;
-    [SerializeField] private Transform[] _spawnPoints;
+    [SerializeField] private Transform _placesParent;
 
     public event UnityAction<Coin> Spawned;
 
@@ -15,7 +15,7 @@ public class CoinSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        foreach (var spawnPoint in _spawnPoints)
+        foreach (Transform spawnPoint in _placesParent)
         {
             Coin newCoin = Instantiate(_prefab, spawnPoint, false);
 

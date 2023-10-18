@@ -9,11 +9,11 @@ public class CoinCounter : MonoBehaviour
     [SerializeField] private string _coinCollectedTrigger;
 
     private int _currentScore;
+    private int _totalCoinsCount;
 
     private void Start()
     {
-        _currentScore = 0;
-        _scoreText.text = _currentScore.ToString();
+        ShowScore();
     }
 
     private void OnEnable()
@@ -28,12 +28,19 @@ public class CoinCounter : MonoBehaviour
 
     private void OnCoinSpawned(Coin coin)
     {
+        _totalCoinsCount++;
         coin.Collected += OnCoinCollected;
     }
 
     private void OnCoinCollected()
     {
-        _scoreText.text = (++_currentScore).ToString();
+        _currentScore++;
+        ShowScore();
         _coinCountAnimator.SetTrigger(_coinCollectedTrigger);
+    }
+
+    private void ShowScore()
+    {
+        _scoreText.text = $"{_currentScore}/{_totalCoinsCount}";
     }
 }
