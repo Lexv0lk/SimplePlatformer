@@ -124,6 +124,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""f3d2ca56-d1c1-486a-8d4b-ad671bac4924"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""40962ae7-c8ac-4596-b05d-93ee265b2ec4"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -135,8 +146,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fa0b3f99-aa23-47b9-a2c2-8f0b5556601b"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""fea8ab4d-72fc-4ba1-8a43-c950922768b1"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -146,8 +157,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fea8ab4d-72fc-4ba1-8a43-c950922768b1"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""225a7631-8e06-4890-8a24-53815ad624fa"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
